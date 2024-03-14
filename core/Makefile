@@ -123,7 +123,7 @@ ifeq "$(shell expr $(CXXCOMPILER) = g++)" "1"
   CXXFLAGS += -fno-gnu-unique
 endif
 
-LDFLAGS += -rdynamic
+CXXFLAGS += -rdynamic
 ifdef BESS_LINK_DYNAMIC
   LIBS_ALL_SHARED = -Wl,-call_shared
   LIBS_DL_SHARED =
@@ -135,7 +135,7 @@ ifdef BESS_LINK_DYNAMIC
 else # Used static libraries
   LIBS_ALL_SHARED =
   LIBS_DL_SHARED = -Wl,-call_shared
-  LDFLAGS += -static-libstdc++
+  CXXFLAGS += -static-libstdc++
   ifeq ($(HAS_PKG_CONFIG), yes)
     PKG_LIBS := $(shell $(PKG_CONFIG) --static --libs $(PKG_CONFIG_DEPS))
     # One of our pkg-config dependency might depend on a library that
