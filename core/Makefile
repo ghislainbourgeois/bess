@@ -104,6 +104,7 @@ CXXFLAGS += -std=c++17 -g3 -ggdb3 -march=$(CPU) \
             -D_GNU_SOURCE \
             -Werror -Wall -Wextra -Wcast-align -Wno-error=deprecated-declarations \
             -Wno-error=array-bounds \
+            -Wno-error=nonnull -Wno-error=maybe-uninitialized \
             $(PKG_CFLAGS)
 
 ifeq "$(shell test $(CXXVERSION) -ge 9; echo $$?)" "0"
